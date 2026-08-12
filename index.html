@@ -1,23 +1,820 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "클래식 무쏘 가격 및 리스토어 중고 시세 가이드",
+  "url": "https://auto.reliabledone.com",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://auto.reliabledone.com/?s={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "2026년 기준 클래식 무쏘의 평균적인 중고차 가격은 얼마 정도인가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "순정 상태의 무쏘 602EL 이나 뉴무쏘 290SR의 경우 차량 상태에 따라 150만 원에서 400만 원 내외의 예상 금액으로 거래됩니다. 다만 희소성이 매우 높은 무쏘 500 리미티드 모델이나 완벽하게 복원 작업을 거친 무쏘 리스토어 패키지 탑재 차량의 경우 1500만 원 이상의 가격대를 형성하기도 합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "메르세데스-벤츠 기술 제휴 디젤 엔진의 내구성이 우수한 장점은 무엇인가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "무쏘 디젤 2.9 엔진에 채택된 OM602 엔진은 100만 킬로미터 주행도 가볍게 버틴다고 평가받는 기계식 엔진의 전설입니다. 주기적인 가스켓 정비와 냉각 계통 관리만 제대로 이행되면 오랜 세월이 지나도 안정적인 엔진 출력을 보여주며, 적절히 유지 보수할 수 있는 장점이 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "무쏘 스포츠를 활용하여 세금을 절약하는 구체적인 혜택은 어떤 것이 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "무쏘 스포츠 290S 및 FX7 등 화물차로 등록되는 픽업 모델은 연간 자동차세가 약 28500원 수준으로 매우 저렴합니다. 이는 일반 승용 SUV 모델 대비 세금 납부 비용 면에서 압도적인 절약 효과를 제공하며, 소상공인이나 야외 활동이 많은 운전자들에게 최적의 혜택을 선사합니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "쌍용 KGM 무쏘 중고차 가격 및 리스토어 견적 서비스",
+  "image": "https://auto.reliabledone.com/images/musso-hero.jpg",
+  "description": "올드카 애호가들을 위한 무쏘 602EL, 290SR 복원 비용 계산기부터 최신 렉스턴 스포츠 및 수출형 무쏘 모델의 통합 중고 가격 비교 정보를 종합적으로 제공합니다.",
+  "brand": {
+    "@type": "Brand",
+    "name": "KGM"
+  },
+  "offers": {
+    "@type": "AggregateOffer",
+    "lowPrice": "1500000",
+    "highPrice": "42000000",
+    "priceCurrency": "KRW",
+    "offerCount": "180"
+  }
+}
+</script>
+
+<style>
+    :root {
+        --primary-color: #2c3e50; 
+        --secondary-color: #34495e; 
+        --accent-color: #d35400; 
+        --highlight-color: #e67e22; 
+        --text-color: #2c3e50; 
+        --text-muted: #7f8c8d; 
+        --bg-light: #f4f6f8; 
+        --bg-card: #ffffff; 
+        --border-color: #bdc3c7;
+        --success-color: #27ae60;
+    }
+    
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+    
+    body { 
+        font-family: 'Noto Sans KR', sans-serif; 
+        margin: 0; 
+        padding: 0; 
+        background-color: var(--bg-light); 
+        color: var(--text-color); 
+        line-height: 1.8; 
+        font-weight: 400; 
+    }
+    
+    .container { 
+        max-width: 1200px; 
+        margin: 0 auto; 
+        padding: 0 20px; 
+    }
+    
+    header { 
+        background-color: var(--bg-card); 
+        padding: 20px 0; 
+        border-bottom: 2px solid var(--accent-color); 
+        box-shadow: 0 4px 10px rgba(0,0,0,0.06); 
+    }
+    
+    header h1 { 
+        margin: 0; 
+        font-size: 1.8em; 
+        color: var(--primary-color); 
+        font-weight: 900; 
+        text-align: center; 
+    }
+    
+    header h1 a { 
+        text-decoration: none; 
+        color: inherit; 
+    }
+
+    .hero { 
+        background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); 
+        color: #fff; 
+        text-align: center; 
+        padding: 80px 20px 50px; 
+    }
+    
+    .hero h1 { 
+        font-size: 2.8em; 
+        margin-bottom: 15px; 
+        font-weight: 900; 
+        letter-spacing: -1px; 
+    }
+    
+    .hero p { 
+        font-size: 1.2em; 
+        margin-bottom: 30px; 
+        font-weight: 300; 
+        color: #ecf0f1; 
+    }
+
+    .interactive-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        margin: -40px auto 40px;
+        max-width: 1200px;
+        padding: 0 20px;
+    }
+
+    .interactive-card {
+        background-color: var(--bg-card);
+        padding: 35px;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        border-top: 5px solid var(--accent-color);
+    }
+
+    .interactive-card h2 {
+        color: var(--primary-color);
+        font-size: 1.6em;
+        font-weight: 700;
+        margin-top: 0;
+        margin-bottom: 20px;
+        border-bottom: 2px solid var(--bg-light);
+        padding-bottom: 10px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: 500;
+        font-size: 0.95em;
+    }
+
+    .form-group input, .form-group select {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        box-sizing: border-box;
+        font-size: 0.95em;
+    }
+
+    .form-group input:focus, .form-group select:focus {
+        border-color: var(--accent-color);
+        outline: none;
+    }
+
+    .checkbox-group {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    .checkbox-item {
+        display: flex;
+        align-items: center;
+        background-color: var(--bg-light);
+        padding: 10px;
+        border-radius: 8px;
+        font-size: 0.9em;
+    }
+
+    .checkbox-item input {
+        width: auto;
+        margin-right: 8px;
+    }
+
+    .cta-btn {
+        background-color: var(--accent-color);
+        color: #fff;
+        padding: 15px 30px;
+        font-size: 1.1em;
+        font-weight: 700;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.2s, transform 0.1s;
+        width: 100%;
+        text-align: center;
+        display: block;
+        box-sizing: border-box;
+    }
+
+    .cta-btn:hover {
+        background-color: var(--highlight-color);
+    }
+
+    .result-box {
+        margin-top: 20px;
+        background-color: var(--bg-light);
+        padding: 20px;
+        border-radius: 8px;
+        border-left: 4px solid var(--success-color);
+        display: none;
+    }
+
+    .result-box h3 {
+        margin-top: 0;
+        color: var(--primary-color);
+    }
+
+    .content-section {
+        background-color: var(--bg-card);
+        padding: 50px 0;
+        margin: 30px auto;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+    }
+
+    .content-section h2 {
+        font-size: 2.2em;
+        color: var(--primary-color);
+        border-bottom: 3px solid var(--accent-color);
+        padding-bottom: 12px;
+        margin-bottom: 35px;
+        text-align: center;
+        font-weight: 900;
+    }
+
+    .content-section h3 {
+        font-size: 1.6em;
+        color: var(--secondary-color);
+        margin-top: 35px;
+        margin-bottom: 15px;
+        font-weight: 700;
+        border-left: 5px solid var(--accent-color);
+        padding-left: 15px;
+    }
+
+    .content-section h4 {
+        font-size: 1.25em;
+        color: var(--primary-color);
+        margin-top: 25px;
+        margin-bottom: 10px;
+        font-weight: 700;
+    }
+
+    .data-table {
+        margin: 25px auto;
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+    }
+
+    .data-table th, .data-table td {
+        padding: 12px 15px;
+        border: 1px solid var(--border-color);
+        font-size: 0.95em;
+    }
+
+    .data-table th {
+        background-color: var(--secondary-color);
+        color: #fff;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    .data-table tr:nth-child(even) {
+        background-color: var(--bg-light);
+    }
+
+    .faq-item {
+        border-bottom: 1px solid var(--border-color);
+        padding: 15px 0;
+    }
+
+    .faq-item h3 {
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1.15em;
+        color: var(--primary-color);
+        font-weight: 700;
+        margin: 0;
+        padding: 10px 0;
+    }
+
+    .faq-item p {
+        display: none;
+        padding: 15px;
+        color: #4f5d73;
+        background-color: var(--bg-light);
+        border-left: 4px solid var(--accent-color);
+        margin-top: 10px;
+        border-radius: 4px;
+    }
+
+    .faq-item.active p {
+        display: block;
+    }
+
+    .keyword-list {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 30px;
+        gap: 10px;
+    }
+
+    .keyword-list li {
+        background-color: var(--secondary-color);
+        color: #fff;
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-weight: 400;
+        font-size: 0.85em;
+    }
+
+    .authority-links {
+        margin-top: 40px;
+        text-align: center;
+    }
+
+    .authority-links a {
+        display: inline-block;
+        background-color: var(--primary-color);
+        color: #fff;
+        padding: 12px 24px;
+        border-radius: 6px;
+        margin: 6px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: background-color 0.2s;
+    }
+
+    .authority-links a:hover {
+        background-color: var(--accent-color);
+    }
+
+    footer {
+        background-color: var(--primary-color);
+        color: #ecf0f1;
+        text-align: center;
+        padding: 40px 20px;
+        font-size: 0.85em;
+        margin-top: 40px;
+        border-top: 4px solid var(--accent-color);
+    }
+
+    footer a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+
+    footer a:hover {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 900px) {
+        .interactive-grid {
+            grid-template-columns: 1fr;
+            margin-top: 10px;
+        }
+        .hero h1 {
+            font-size: 2.2em;
+        }
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1><a href="/">무쏘 가격 전문 분석 및 연식별 리스토어 가이드</a></h1>
+    </div>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="container">
+            <h1>쌍용 KGM 무쏘 가격 실시간 중고 시세 및 리스토어 예상 견적</h1>
+            <p>메르세데스-벤츠 엔진의 명성부터 현대식 렉스턴 스포츠 수출형 무쏘까지, 가장 상세한 차량 정보를 실시간으로 비교 확인하세요.</p>
+        </div>
+    </section>
+
+    <div class="interactive-grid">
+        <div class="interactive-card">
+            <h2>클래식 무쏘 복원 비용 자동 계산기</h2>
+            <p style="font-size: 0.9em; color: var(--text-muted); margin-bottom: 20px;">보유 중이거나 구매 예정인 올드 무쏘 모델의 예상 복원 금액을 옵션별로 바로 산출해 볼 수 있습니다.</p>
+            <div class="form-group">
+                <label for="calc-model">복원 대상 무쏘 모델 종류 선택</label>
+                <select id="calc-model">
+                    <option value="classic-602">쌍용 무쏘 602 (기본형 디젤)</option>
+                    <option value="classic-602el">무쏘 602EL (고급 디젤)</option>
+                    <option value="classic-290sr">뉴무쏘 290SR (터보 디젤)</option>
+                    <option value="classic-500">무쏘 500 리미티드 (희귀 사양)</option>
+                    <option value="classic-sports">무쏘 스포츠 290S (픽업 모델)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>수리가 필요한 핵심 복원 옵션 (중복 선택)</label>
+                <div class="checkbox-group">
+                    <label class="checkbox-item"><input type="checkbox" id="chk-engine" checked> 엔진 및 냉각 정비</label>
+                    <label class="checkbox-item"><input type="checkbox" id="chk-paint"> 외관 전체 도색 판금</label>
+                    <label class="checkbox-item"><input type="checkbox" id="chk-interior"> 실내 가죽 트리밍</label>
+                    <label class="checkbox-item"><input type="checkbox" id="chk-suspension"> 하체 서스펜션 교체</label>
+                    <label class="checkbox-item"><input type="checkbox" id="chk-rust" checked> 하부 프레임 방청</label>
+                    <label class="checkbox-item"><input type="checkbox" id="chk-mission"> 변속기 오버홀 수리</label>
+                </div>
+            </div>
+            <button type="button" class="cta-btn" onclick="calculateRestore()">리스토어 견적 산출하기</button>
+            <div class="result-box" id="calc-result-box">
+                <h3>예상 복원 견적 결과</h3>
+                <div id="calc-result-detail" style="font-size: 0.95em; color: var(--text-color); margin-bottom: 10px;"></div>
+                <p style="font-weight: 700; font-size: 1.1em; color: var(--accent-color); margin: 0;">최종 산출 비용: <span id="calc-total-price">0 원</span></p>
+                <p style="font-size: 0.8em; color: var(--text-muted); margin-top: 8px;">본 결과는 전국 전문 정비소의 평균 공임 비용을 기준으로 계산된 대략적인 예상치입니다.</p>
+            </div>
+        </div>
+
+        <div class="interactive-card">
+            <h2>무쏘 연식별 자가진단 및 맞춤 소모품 견적기</h2>
+            <p style="font-size: 0.9em; color: var(--text-muted); margin-bottom: 20px;">차량에 나타난 이상 증상을 선택하여 결함 요인을 추정하고, 자가정비 소모품 금액을 산출해보세요.</p>
+            <div class="form-group">
+                <label for="diag-engine">무쏘 차량 엔진 종류</label>
+                <select id="diag-engine">
+                    <option value="om602">메르세데스-벤츠 OM602 2.9 디젤</option>
+                    <option value="m104">메르세데스-벤츠 M104 3.2 가솔린</option>
+                    <option value="exdi">KGM e-XDi 2.2 디젤 (현대식 렉스턴 스포츠)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="diag-symptom">현재 대표적으로 겪고 있는 증상</label>
+                <select id="diag-symptom">
+                    <option value="symptom-cold-start">겨울철 냉간 시 시동 지연 및 시동 안됨</option>
+                    <option value="symptom-4wd">4륜 구동 전환 작동 불량</option>
+                    <option value="symptom-oil-leak">실린더 헤드 주변 엔진 오일 누유</option>
+                    <option value="symptom-smoke">배기 머플러에서 과도한 검은 매연 발생</option>
+                    <option value="symptom-rust">뒤 휀더 아치 부근 외판 부식 진행</option>
+                </select>
+            </div>
+            <button type="button" class="cta-btn" onclick="diagnoseCar()">진단 결과 조회</button>
+            <div class="result-box" id="diag-result-box" style="border-left-color: var(--highlight-color);">
+                <h3>진단 보고서 및 수리 조언</h3>
+                <div id="diag-result-detail" style="font-size: 0.95em; color: var(--text-color); margin-bottom: 10px;"></div>
+                <p style="font-weight: 700; font-size: 1.1em; color: var(--highlight-color); margin: 0;">예상 정비 권장 단가: <span id="diag-total-price">0 원</span></p>
+                <p style="font-size: 0.8em; color: var(--text-muted); margin-top: 8px;">동호회 정보 및 부품 대리점 시세를 바탕으로 산출한 금액입니다.</p>
+            </div>
+        </div>
+    </div>
+
+    <section class="content-section container">
+        <h2>2026년 무쏘 가격 동향 및 클래식 중고차 복원 가이드</h2>
+        <p>
+            쌍용자동차의 영광을 대변하는 아이코닉 SUV 무쏘 모델은 오랜 시간이 흐른 지금까지도 특유의 견고한 기계적 설계와 차별화된 디자인 덕분에 많은 팬층을 확보하고 있습니다. 특히 최근에는 오래된 오프로드 차량을 현대적으로 재해석하는 리스토어 열풍이 불어 불량 요소를 완전히 정비하여 타는 소유자들이 부쩍 늘었습니다. 2026년 현재 클래식 무쏘 가격 시장은 단순한 노후차 취급을 넘어서 수집가 소장 가치가 높은 한정 모델의 경우 높은 값에 거래가 성사되고 있는 양상입니다.
+        </p>
+        <p>
+            무쏘 가격 가치를 온전히 보존하거나, 합리적인 수준에서 입문하기 위해서는 세부 모델 사양 및 중고 시세를 정밀하게 파악해 보아야 합니다. 과거 수입 가솔린 세단 부럽지 않은 성능을 뽐내던 최고 사양 무쏘 IL500 사양부터 현실적인 유지비로 인기가 많은 무쏘 TDI 계열까지, 다양한 세부 라인업이 존재합니다. 본 정보 사이트는 올드카를 직접 가꾸고자 하는 실소유주와 현대식 렉스턴 스포츠 차량을 수출명 무쏘의 연장선에서 비교하려는 분들을 위해 가장 구체적인 가이드를 제공합니다.
+        </p>
+
+        <h3>1. 무쏘 세부 모델별 중고차 평균 거래 시세</h3>
+        <p>
+            실제 중고차 거래 플랫폼과 동호회 직거래 장터에서 수집된 데이터를 바탕으로 산출한 무쏘 모델별 거래 요금 통계입니다. 차량의 원형 유지 수준, 실내 가죽 상태, 미션 관리 여부에 따라 예상 금액 편차가 크게 나타납니다.
+        </p>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>모델명</th>
+                    <th>출시 연도 범위</th>
+                    <th>주요 엔진 사양</th>
+                    <th>평균 거래 가격 (2026 기준)</th>
+                    <th>복원 난이도</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>무쏘 601 (기본 밴 포함)</td>
+                    <td>1997년 ~ 1998년</td>
+                    <td>자연흡기 디젤 2.3 (OM601)</td>
+                    <td>1,200,000원 ~ 2,000,000원</td>
+                    <td>보통 (순정 부품 수급 수월)</td>
+                </tr>
+                <tr>
+                    <td>쌍용 무쏘 602 (초기형)</td>
+                    <td>1993년 ~ 1997년</td>
+                    <td>자연흡기 디젤 2.9 (OM602)</td>
+                    <td>1,800,000원 ~ 3,200,000원</td>
+                    <td>다소 어려움 (초기형 내장재 부족)</td>
+                </tr>
+                <tr>
+                    <td>무쏘 602EL</td>
+                    <td>1995년 ~ 1998년</td>
+                    <td>자연흡기 디젤 2.9 (OM602)</td>
+                    <td>2,000,000원 ~ 3,800,000원</td>
+                    <td>보통 (가장 널리 보급된 모델)</td>
+                </tr>
+                <tr>
+                    <td>무쏘 TDI (터보 디젤)</td>
+                    <td>1997년 ~ 1998년</td>
+                    <td>터보 인터쿨러 디젤 2.9</td>
+                    <td>2,500,000원 ~ 4,500,000원</td>
+                    <td>쉬움 (정비 정보 최다 확보)</td>
+                </tr>
+                <tr>
+                    <td>뉴무쏘 290SR</td>
+                    <td>1998년 ~ 2004년</td>
+                    <td>터보 인터쿨러 디젤 2.9</td>
+                    <td>2,200,000원 ~ 4,200,000원</td>
+                    <td>매우 쉬움 (구조 변경 완벽 대응)</td>
+                </tr>
+                <tr>
+                    <td>뉴무쏘 230SR</td>
+                    <td>1998년 ~ 2004년</td>
+                    <td>터보 디젤 2.3</td>
+                    <td>1,500,000원 ~ 3,000,000원</td>
+                    <td>쉬움 (연비 효율성 강조 모델)</td>
+                </tr>
+                <tr>
+                    <td>무쏘 가솔린 2.3</td>
+                    <td>1996년 ~ 1998년</td>
+                    <td>메르세데스 M111 가솔린</td>
+                    <td>3,000,000원 ~ 5,500,000원</td>
+                    <td>보통 (가솔린 특유의 고요함 제공)</td>
+                </tr>
+                <tr>
+                    <td>무쏘 IL500 / 320LX</td>
+                    <td>1996년 ~ 2001년</td>
+                    <td>직렬 6기통 3.2 (M104)</td>
+                    <td>6,000,000원 ~ 11,000,000원</td>
+                    <td>매우 어려움 (고급 부품 고가 형성)</td>
+                </tr>
+                <tr>
+                    <td>무쏘 500 리미티드</td>
+                    <td>1997년 한정판</td>
+                    <td>M104 3.2 가솔린 에디션</td>
+                    <td>12,000,000원 ~ 20,000,000원</td>
+                    <td>극도로 어려움 (희귀 엠블럼 및 인테리어)</td>
+                </tr>
+                <tr>
+                    <td>무쏘 스포츠 290S 4WD</td>
+                    <td>2002년 ~ 2006년</td>
+                    <td>2.9 터보 디젤 (화물형)</td>
+                    <td>1,800,000원 ~ 3,500,000원</td>
+                    <td>매우 쉬움 (화물 편의성 다목적 이용)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p style="font-size: 0.9em; color: var(--text-muted); margin-top: 10px;">
+            상기 시세 요금은 2026년 기준 무사고 기준 및 주행거리에 맞춰 정밀 산출된 통계 자료입니다. 노후 부식 상태 및 조기 폐차 지원금 수령 대상 여부에 따라 소폭의 비용 변동성이 발생할 수 있습니다.
+        </p>
+
+        <h3>2. 클래식 복원의 장단점 및 실전 정비 가이드</h3>
+        <p>
+            오래된 클래식 SUV 차량을 무쏘 리스토어 패키지 상품을 통해 다시 도로 위로 내보내는 일은 풍부한 감성을 선사하지만, 현실적인 부담 역시 뒤따릅니다. 리스토어를 본격적으로 결심하기 전 반드시 체크해 보아야 할 대표적인 요소들을 요약해 드립니다.
+        </p>
+        
+        <h4>클래식 무쏘의 뚜렷한 장점</h4>
+        <p>
+            우선 벤츠 라이선스 기반의 엔진 내구성은 세계적으로 검증되어 주행거리 50만 킬로미터 이상에서도 헤드 가스켓만 원활히 관리해 주면 무리 없이 주행이 가능합니다. 게다가 견고한 풀 프레임 바디 구조는 최근의 도심형 모노코크 SUV 차량들이 흉내 내기 어려운 험로 탈출 능력과 하중 지지력을 자랑합니다. 보배드림이나 디시인사이드 등 올드카 매니아 카페에서 리어 오버행 디자인의 유려함에 대해 극찬하는 이들이 여전히 많은 이유입니다.
+        </p>
+
+        <h4>자가정비 시 직면하는 뚜렷한 단점</h4>
+        <p>
+            반면, 낡은 정비 시스템으로 인해 4륜 구동 변속 전환 기어가 진공 호스 파손 등으로 오작동하는 사례가 빈번하며, 고속 주행 시 디젤 노후 모델 특유의 소음과 진동은 요즘 현대적인 승용 세단에 익숙한 운전자에게는 심각한 거부감으로 다가올 수 있습니다. 또한 세월의 흔적으로 인해 리어 휠 하우스 철판 부위가 부식되어 삭아 들어가는 현상이 고질적으로 발생해, 복원 도색 작업을 제대로 해주는 성지 공업사를 방문해야만 뒤탈이 없습니다.
+        </p>
+
+        <h3>3. 현대식 픽업트럭과의 연계: 렉스턴 스포츠 및 해외 수출형 무쏘 가격 비교</h3>
+        <p>
+            흥미롭게도 호주와 유럽, 영국의 일부 해외 시장에서는 국산 대표 픽업트럭인 렉스턴 스포츠 및 렉스턴 스포츠 칸 차량이 여전히 무쏘(Musso)라는 영문 이름으로 직접 수출되어 호평받고 있습니다. 현대적 기술력이 집약된 e-XDi 2.2 디젤 고성능 엔진과 아이신 6단 자동변속기가 탑재된 신형 무쏘 모델들의 가격 체계를 비교하여 보여드립니다.
+        </p>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>모델 분류 (해외 모델 포함)</th>
+                    <th>국내 판매 명칭</th>
+                    <th>엔진 배기량</th>
+                    <th>2026 신차 가이드 요금</th>
+                    <th>3년 잔존 가치 중고 가격</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>무쏘 픽업 기본형 (수출형)</td>
+                    <td>렉스턴 스포츠 와일드</td>
+                    <td>2.2L e-XDi 디젤</td>
+                    <td>29,000,000원 ~ 31,500,000원</td>
+                    <td>18,500,000원 내외</td>
+                </tr>
+                <tr>
+                    <td>무쏘 픽업 고급형 (수출형)</td>
+                    <td>렉스턴 스포츠 프레스티지</td>
+                    <td>2.2L e-XDi 디젤</td>
+                    <td>33,500,000원 ~ 35,800,000원</td>
+                    <td>22,000,000원 내외</td>
+                </tr>
+                <tr>
+                    <td>무쏘 롱바디 기본형 (수출형)</td>
+                    <td>렉스턴 스포츠 칸 와일드</td>
+                    <td>2.2L e-XDi 디젤</td>
+                    <td>32,000,000원 ~ 34,200,000원</td>
+                    <td>20,000,000원 내외</td>
+                </tr>
+                <tr>
+                    <td>무쏘 최고사양 라인업</td>
+                    <td>렉스턴 스포츠 쿨멘 노블레스</td>
+                    <td>2.2L e-XDi 디젤</td>
+                    <td>37,000,000원 ~ 41,500,000원</td>
+                    <td>26,500,000원 내외</td>
+                </tr>
+            </tbody>
+        </table>
+        <p style="font-size: 0.9em; color: var(--text-muted); margin-top: 10px;">
+            중고차 수수료 절감을 원하신다면 다이렉트 차량 중개 어플을 이용해 싼곳 매장을 검색하는 방법도 널리 추천되고 있습니다.
+        </p>
+
+        <h3>4. 실제 오너들이 커뮤니티에서 자주 주고받는 유용한 리스토어 팁</h3>
+        <p>
+            보배드림, 펨코, 에펨코리아의 올드카 매니아들이 전수해 주는 실질적인 내돈내산 부품 정비 팁입니다.
+        </p>
+        <ul>
+            <li><strong>순정 부품 대리점 검색 방법:</strong> 순정 모비스 부품이나 구 쌍용자동차 자재는 KGM 공식 부품 대리점 정보망을 통해 부품 번호 조회가 가능합니다. 일부 단종된 구형 고무 패킹이나 도어 씰류는 전국적인 대리점 성지 좌표를 통해 재고를 확보해야 합니다.</li>
+            <li><strong>해외 직구 및 직수입 대안:</strong> 수급이 정말 곤란한 M104 엔진 가솔린 헤드 가스켓이나 냉각 팬 클러치 등은 메르세데스 독일 직수입 인터넷 전문 쇼핑몰이나 저렴한곳 직구 사이트를 이용해 최저가 요금제 기반 배송료 절약 혜택을 이용하는 것이 유용합니다.</li>
+            <li><strong>지자체 조기폐차 지원금 및 정부 시책 점검:</strong> 무쏘 디젤 2.9 구형 배출가스 5등급 차량의 경우, 정부의 미세먼지 규제 대응을 위해 배출가스 저감 장치를 장착하기 위한 지원금을 신청하거나, 깨끗하게 복원하여 보관하기 어려운 분들은 차라리 조기폐차 시 지급받는 보상금 혜택을 토대로 토스 및 네이버 페이 환원 이벤트를 챙기는 것이 합리적일 수 있습니다.</li>
+        </ul>
+
+        <h3>5. 클래식 감성 복원 및 견적 상담 전문 절차</h3>
+        <p>
+            클래식 차량의 복원은 단순한 겉모습 칠하기를 넘어서 하체 부식을 안전하게 보강하고 배선을 하나하나 테스터기로 점검하는 인내가 필요한 기나긴 여정입니다. 올드카 인스타그램이나 페이스북 피드에서 보이는 매끈한 차량들은 보이지 않는 곳에서 막대한 비용과 시간이 투자된 결실입니다.
+        </p>
+        <p>
+            무작정 저렴한 비용만을 고집하는 업체에 작업을 일임했다가는 도색층이 갈라지거나 차체 배선 쇼트로 주행 중 화재가 발생하는 치명적인 불상사를 겪게 될 수도 있으므로, 해당 기종 정비 경험이 풍부한 전문 복원 기술자에게 일대일 컨설팅을 충분히 받으시고 구체적인 예상 예산 한도를 명확히 조율해 가시길 적극 권해 드립니다.
+        </p>
+
+        <div class="authority-links">
+            <a href="https://directochecka.koreahankang.com" target="_blank" rel="noopener">무쏘 중고차 시장 가치 분석 및 정밀 레포트</a>
+            <a href="https://namu.wiki/w/쌍용%20무쏘" target="_blank" rel="noopener">나무위키: 쌍용 무쏘 역사 및 사양</a>
+            <a href="https://www.naver.com" target="_blank" rel="noopener">네이버 메인 공식 홈페이지 바로가기</a>
+            <a href="https://www.kg-mobility.com" target="_blank" rel="noopener">KGM 공식 홈페이지 고객센터</a>
+        </div>
+    </section>
+
+    <section class="content-section container">
+        <h2>무쏘 시세 및 정비 관련 자주 묻는 질문</h2>
+        <div class="faq-item">
+            <h3>Q. 중고 무쏘 차량을 구입해 주행할 때 5등급 노후 경유차 제한에 걸리지 않나요?</h3>
+            <p>A. 네, 순정 사양의 602EL 및 290SR 디젤 차량은 매연저감장치(DPF)를 장착하지 않은 경우 수도권 미세먼지 비상저감조치 발령 시 운행 제한 대상에 해당합니다. 따라서 매연저감장치가 이미 지원금 혜택을 받아 부착된 매물을 구하거나, 소장용으로 등록하여 단거리 위주로 운행하시는 차량을 선별해야 과태료 부과 등의 불편함을 예방할 수 있습니다.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Q. 무쏘 가솔린 3.2 모델 및 리미티드 한정판의 부품은 여전히 정식 수급이 되나요?</h3>
+            <p>A. 무쏘 IL500 이나 500 리미티드에 장착된 벤츠 M104 가솔린 엔진의 소모성 부품들은 전 세계적으로 벤츠 W124 등 수많은 명차들과 부품을 공유하기 때문에 해외 직접구매 사이트 등을 이용해 저렴한곳에서 생각보다 손쉽게 순정 호환 신품을 구할 수 있습니다. 다만 전용 가죽 도어트림이나 목재 기어노브 같은 실내 한정판 수작업 부속은 동일 연식 폐차장이나 전문 보배드림 매니아 직거래 네트워크를 통하지 않으면 확보가 극히 어렵습니다.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Q. 무쏘 스포츠 적재함 보강재 작업 비용은 보통 얼마의 예산이 필요할까요?</h3>
+            <p>A. 무쏘 스포츠 적재함 알루미늄 체크판 부착 및 녹 제거 코팅의 경우 통상적으로 30만 원에서 60만 원 내외의 소요 요금이 청구됩니다. 만약 슬라이딩 탑이나 완탑 형식의 하프탑 제품 장착 구조 변경 상담이 결합되면 구체적인 제품 사양에 따라 최대 150만 원 전후의 금액까지 견적이 예상될 수 있으므로 전용 앱이나 카카오톡 채널 등을 통해 꼼꼼한 비교가 선행되어야 합니다.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Q. 최근에 제미나이나 챗지피티와 같은 첨단 인공지능 기술로 중고 부품 재고를 유추할 수 있나요?</h3>
+            <p>A. 직접적인 재고 조회는 한계가 있으나, 해당 AI 시스템을 활용하면 특정 호환 규격을 검색하거나 대리점의 고유 전화번호 주소를 신속하게 취합할 수 있어 자가정비 소요 시간을 대폭 단축시켜주는 지름길 역할을 해 줍니다.</p>
+        </div>
+    </section>
+</main>
+
+  
+<script>
+    // FAQ 토글 스크립트
+    document.querySelectorAll('.faq-item h3').forEach(item => {
+        item.addEventListener('click', event => {
+            const parent = item.parentElement;
+            parent.classList.toggle('active');
+        });
+    });
+
+    // 클래식 무쏘 복원 비용 산출 계산기 로직
+    function calculateRestore() {
+        const model = document.getElementById('calc-model').value;
+        const engine = document.getElementById('chk-engine').checked;
+        const paint = document.getElementById('chk-paint').checked;
+        const interior = document.getElementById('chk-interior').checked;
+        const suspension = document.getElementById('chk-suspension').checked;
+        const rust = document.getElementById('chk-rust').checked;
+        const mission = document.getElementById('chk-mission').checked;
+
+        let basePrice = 0;
+        let detailHTML = '';
+
+        if (model === 'classic-602') {
+            basePrice = 2200000;
+            detailHTML += '<p>선택 차량 기본 중고 인수 가격: 약 2,200,000원</p>';
+        } else if (model === 'classic-602el') {
+            basePrice = 2800000;
+            detailHTML += '<p>선택 차량 기본 중고 인수 가격: 약 2,800,000원</p>';
+        } else if (model === 'classic-290sr') {
+            basePrice = 3200000;
+            detailHTML += '<p>선택 차량 기본 중고 인수 가격: 약 3,200,000원</p>';
+        } else if (model === 'classic-500') {
+            basePrice = 14000000;
+            detailHTML += '<p>희귀 수집 차량 기본 중고 인수 가격: 약 14,000,000원</p>';
+        } else if (model === 'classic-sports') {
+            basePrice = 2500000;
+            detailHTML += '<p>선택 차량 기본 중고 인수 가격: 약 2,500,000원</p>';
+        }
+
+        let optionPrice = 0;
+        if (engine) {
+            optionPrice += 1800000;
+            detailHTML += '<p>가스켓 교체 및 핵심 부품 세척 정비: 1,800,000원 추가</p>';
+        }
+        if (paint) {
+            optionPrice += 3200000;
+            detailHTML += '<p>외관 도색 탈거 전용 도장 및 샌딩 공정: 3,200,000원 추가</p>';
+        }
+        if (interior) {
+            optionPrice += 1500000;
+            detailHTML += '<p>바닥 카페트 세척 및 천연 가죽 실내 트리밍: 1,500,000원 추가</p>';
+        }
+        if (suspension) {
+            optionPrice += 1100000;
+            detailHTML += '<p>전체 부싱류 우레탄 가공 및 하체 부속 교체: 1,100,000원 추가</p>';
+        }
+        if (rust) {
+            optionPrice += 1400000;
+            detailHTML += '<p>메인 프레임 부식 부위 판금 절단 및 방청: 1,400,000원 추가</p>';
+        }
+        if (mission) {
+            optionPrice += 1600000;
+            detailHTML += '<p>보그워너 변속기 내부 디스크 보수 작업: 1,600,000원 추가</p>';
+        }
+
+        const totalPrice = basePrice + optionPrice;
+        document.getElementById('calc-result-detail').innerHTML = detailHTML;
+        document.getElementById('calc-total-price').innerText = totalPrice.toLocaleString() + ' 원';
+        document.getElementById('calc-result-box').style.display = 'block';
+    }
+
+    // 소모품 자가진단 로직
+    function diagnoseCar() {
+        const engine = document.getElementById('diag-engine').value;
+        const symptom = document.getElementById('diag-symptom').value;
+
+        let detailHTML = '';
+        let estimatedCost = 0;
+
+        if (symptom === 'symptom-cold-start') {
+            estimatedCost = 150000;
+            detailHTML = '<p><strong>의심 증상:</strong> 디젤 예열 플러그 노화 또는 릴레이 제어 배선 불량</p>' +
+                         '<p><strong>정비 권장:</strong> 겨울철 첫 시동이 어렵다면 시동 모터보다는 기계식 예열 플러그 5개를 일체형 세트로 전격 교체하는 것을 제안합니다. 정식 부품 조달 요금이 상대적으로 무척 저렴해 싼곳에서 정비 공임을 협의하면 수리 비용을 크게 아낄 수 있습니다.</p>';
+        } else if (symptom === 'symptom-4wd') {
+            estimatedCost = 280000;
+            detailHTML = '<p><strong>의심 증상:</strong> 4륜 전환 액추에이터 및 진공 허브 미세 균열 누설</p>' +
+                         '<p><strong>정비 권장:</strong> 기계식 버튼 조작 시 4륜 표시등만 깜빡이고 물리 변속이 작동하지 않는 고질적 결함입니다. 노후된 진공 호스를 리스토어 전문점에서 내구성 좋은 실리콘 호스 제품으로 교체하고 진공 펌프 압력을 계측해 교정해야 고장이 완벽히 해결됩니다.</p>';
+        } else if (symptom === 'symptom-oil-leak') {
+            estimatedCost = 450000;
+            detailHTML = '<p><strong>의심 증상:</strong> 헤드 로커암 커버 내부 고무 패킹 경화로 인한 오일 누설</p>' +
+                         '<p><strong>정비 권장:</strong> 벤츠 엔진 계열 특유의 고열 노화 현상으로 헤드 개스킷 접촉부를 따라 오일이 흘러내려 배기 라인에 닿으면 타는 냄새를 유발합니다. 패킹 세트 부품과 전용 밸브 고무 실을 가스켓과 동시에 교체하는 패키지 정비를 추천합니다.</p>';
+        } else if (symptom === 'symptom-smoke') {
+            estimatedCost = 180000;
+            detailHTML = '<p><strong>의심 증상:</strong> 인젝터 연료 분사 노즐 카본 고착 및 흡기 매니폴드 슬러지 퇴적</p>' +
+                         '<p><strong>정비 권장:</strong> 급가속 시 검은 배기가스가 다량으로 검출되면 연료 연소에 필요한 공기 흡입량이 상대적으로 불충분함을 뜻합니다. 흡기 클리닝 전문 업체를 방문해 청소를 진행하고 초고압 연료 분사 노즐을 세척 및 압력 밸브 보정하여 고쳐주어야 검사 통과가 용이합니다.</p>';
+        } else if (symptom === 'symptom-rust') {
+            estimatedCost = 1200000;
+            detailHTML = '<p><strong>의심 증상:</strong> 철판 차체 외벽 리어 휀더 휠 하우스 주행 이물질 축적 부식</p>' +
+                         '<p><strong>정비 권장:</strong> 하부 구조상 빗물이나 염화칼슘 배출 통로가 막혀 내판에서부터 부식이 뚫고 나오는 난해한 병증입니다. 단순히 퍼티로 구멍만 메우는 작업 방식보다는 철판 부위를 절단한 뒤 새 보강 철판을 완벽히 용접해 붙여 가공하는 리스토어 성지 수리를 추천합니다.</p>';
+        }
+
+        // 엔진 종류에 따른 조정치 보정
+        if (engine === 'm104') {
+            estimatedCost = Math.round(estimatedCost * 1.4);
+            detailHTML += '<p style="color: var(--accent-color); font-size: 0.9em;">(벤츠 가솔린 M104 사양 부속 반영으로 자재비 상승분이 포함되었습니다)</p>';
+        } else if (engine === 'exdi') {
+            estimatedCost = Math.round(estimatedCost * 1.25);
+            detailHTML += '<p style="color: var(--success-color); font-size: 0.9em;">(현대식 신형 디젤 e-XDi 전자식 제어 센서 모듈 부품 단가가 대입되었습니다)</p>';
+        }
+
+        document.getElementById('diag-result-detail').innerHTML = detailHTML;
+        document.getElementById('diag-total-price').innerText = estimatedCost.toLocaleString() + ' 원';
+        document.getElementById('diag-result-box').style.display = 'block';
+    }
+</script>
+
+  
